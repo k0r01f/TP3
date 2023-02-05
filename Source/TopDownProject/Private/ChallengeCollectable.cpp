@@ -85,17 +85,20 @@ void AChallengeCollectable::OnSphereBeginOverlap(UPrimitiveComponent* Overlapped
 {
 	if (bIsChallengeStarted)
 	{
-		HideCollectable();
-
 		APawn* PlayerPawn = Cast<APawn>(OtherActor);
 		APlayerState* PlayerState = (PlayerPawn == nullptr ? nullptr : PlayerPawn->GetPlayerState());
 
-		CollectCoin(PlayerState);
-
-		AChallengeGameMode* GameMode = Cast<AChallengeGameMode>(UGameplayStatics::GetGameMode(GetWorld()));
-		if (GameMode != nullptr)
+		if(PlayerState != nullptr)
 		{
-			GameMode->OnGameOver.RemoveDynamic(this, &AChallengeCollectable::StopChallenge);
+			HideCollectable();
+
+			CollectCoin(PlayerState);
+
+			AChallengeGameMode* GameMode = Cast<AChallengeGameMode>(UGameplayStatics::GetGameMode(GetWorld()));
+			if (GameMode != nullptr)
+			{
+				GameMode->OnGameOver.RemoveDynamic(this, &AChallengeCollectable::StopChallenge);
+			}
 		}
 	}
 }
