@@ -35,7 +35,7 @@ public:
 	UPROPERTY(BlueprintAssignable, Category = "Challenge")
 	FOnGameOver OnGameOver;
 
-	UFUNCTION(BlueprintNativeEvent, BlueprintCallable)
+	UFUNCTION(BlueprintNativeEvent, BlueprintCallable) //peu importe le nombre de fois que je build il faut toujours le refaire...
 	void InitChallenge(int32 Count);
 
 	void InitChallenge_Implementation(int32 Count);
