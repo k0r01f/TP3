@@ -35,7 +35,7 @@ public:
 	UPROPERTY(BlueprintAssignable, Category = "Challenge")
 	FOnGameOver OnGameOver;
 
-	UFUNCTION(BlueprintNativeEvent, BlueprintCallable) //peu importe le nombre de fois que je build il faut toujours le refaire...
+	UFUNCTION(BlueprintNativeEvent, BlueprintCallable) //peu importe le nombre de fois que je build il faut toujours le refaire... hic... LiveCode is a patching system... need to full rebuild too
 	void InitChallenge(int32 Count);
 
 	void InitChallenge_Implementation(int32 Count);
